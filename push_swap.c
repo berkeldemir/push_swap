@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 07:51:09 by beldemir          #+#    #+#             */
-/*   Updated: 2024/12/19 08:28:13 by beldemir         ###   ########.fr       */
+/*   Updated: 2024/12/24 12:29:33 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ int main(int ac, char *av)
 
 	if (ac < 2)
 		return (0);
-	i = 0;
+	i = -1;
 	while (av[++i])
 		if (isarg_int(av[i]) == -1)
 			return (write(1, "Error\n", 6), -1);
 	a = (int *)malloc(sizeof(int) * i);
-	i = 0;
+	i = -1;
 	while (av[++i])
 		a[i - 1] = ft_atoi(av[i]);
 	
