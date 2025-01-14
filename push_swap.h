@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 07:51:09 by beldemir          #+#    #+#             */
-/*   Updated: 2025/01/14 07:53:13 by beldemir         ###   ########.fr       */
+/*   Created: 2025/01/14 07:46:20 by beldemir          #+#    #+#             */
+/*   Updated: 2025/01/14 07:54:42 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-int main(int ac, char *av)
+# include <unistd.h>
+# include <stdarg.h>
+
+typedef	struct	s_stack
 {
-	int *a;
-	int *b;
-	int i;
-	int	c;
+	int	*before;
+	int	number;
+	int	*after;
+}	t_stack;
 
-	if (ac < 2)
-		return (write(1, "Error\n", 6), -1);
-	i = -1;
-	while (av[++i])
-		if (check_int(av[i]) == -1)
-			return (write(1, "Error\n", 6), -1);
-	a = (int *)malloc(sizeof(int) * i);
-	i = -1;
-	while (av[++i])
-		a[i] = ft_atoi(av[i]);
-	
-	free(a);
-	free(b);
-}
+int	ft_atoi(char *str);
+int	check_int(char *str);
+
+#endif
