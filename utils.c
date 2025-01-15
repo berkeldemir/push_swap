@@ -12,13 +12,11 @@
 
 #include "push_swap.h"
 
-void	st_addnum(int *bef, int num, int *aft)
+void	st_addnum(int num, int ind, int *bef)
 {
 	t_stack	new;
 	
-	new->before = bef;
-	new->num = num;
-	new->after = aft;
+	
 	
 	return (new);
 }

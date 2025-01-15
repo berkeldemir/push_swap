@@ -18,9 +18,10 @@
 
 typedef	struct	s_stack
 {
-	int	*before;
 	int	number;
-	int	*after;
+	int	reali;
+	int	sorti;
+	int	*next;
 }	t_stack;
 
 int	ft_atoi(char *str);
