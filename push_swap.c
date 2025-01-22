@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 07:51:09 by beldemir          #+#    #+#             */
-/*   Updated: 2025/01/14 07:53:13 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/01/22 09:30:28 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ int	checker(char *str)
 
 int	sort_index(int **arr)
 {
+	t_stack	*a;
 
+	
 }
 
 int main(int ac, char *av)

@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   raod_s_p.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 07:46:20 by beldemir          #+#    #+#             */
-/*   Updated: 2025/01/22 11:51:47 by beldemir         ###   ########.fr       */
+/*   Created: 2025/01/22 11:33:39 by beldemir          #+#    #+#             */
+/*   Updated: 2025/01/22 11:52:52 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../includes/push_swap.h"
 
-# include <unistd.h>
-# include <stdarg.h>
-
-typedef	struct	s_stack
+void	s(t_stack *tab,	t_quiet bool)
 {
-	int	*tab;
-	int	len;
-}	t_stack;
+	//ilk iki eleman yer değişir
+	if (t_quiet == PRINT)
+		ft_printf(s);
+}
 
-typedef enum	e_quiet
+void	ss(t_stack *a, t_stack *b)
 {
-	QUIET,
-	PRINT
-}	t_quiet;
+	s(a);
+	s(b);
+	return ;
+}
 
-int	ft_atoi(char *str);
-int	check_int(char *str);
+void	pa(t_stack *a, t_stack *b)
+{
+	//b'nin ilk elemanını a'nın ilk elemanı yap.
+}
 
-#endif
+void	pb(t_stack *b, t_stack *a)
+{
+	//a'nın ilk elemanını b'nin ilk elemanı yap.
+}
