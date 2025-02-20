@@ -6,20 +6,11 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 07:47:52 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/20 06:45:57 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/20 07:17:35 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	st_addnum(int num, int ind, int *bef)
-{
-	t_stack	new;
-	
-	
-	
-	return (new);
-}
 
 int	ft_isnum(char *s)
 {
@@ -36,29 +27,4 @@ int	ft_isnum(char *s)
 			return (-1);
 	}
 	return (i);
-}
-
-
-int	ft_atoi(char *str)
-{
-	int		i;
-	long	num;
-	int		isneg;
-
-	i = 0;
-	num = 0;
-	isneg = 1;
-	if (str[i] != '\0' && str[i] == '-')
-	{
-		isneg *= -1;
-		i++;
-	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] != '\0')
-	{
-		num = (num * 10) + (str[i] - 48);
-		i++;
-	}
-	return (num * isneg);
 }

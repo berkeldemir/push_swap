@@ -1,5 +1,5 @@
 NAME = libft.a
-CC = gcc
+CC = @gcc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = $(shell find . ! -name "ft_lst*.c" -name "ft_*.c")
 SRCS_BONUS = $(shell find . -name "ft_lst*.c")

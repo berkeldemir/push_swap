@@ -6,11 +6,11 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 20:17:52 by beldemir          #+#    #+#             */
-/*   Updated: 2025/01/14 07:48:54 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/20 07:18:15 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "push_swap.h"
 
 static int	ft_print_c(char c)
 {
