@@ -1,42 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
+/*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 07:51:09 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/20 06:40:41 by beldemir         ###   ########.fr       */
+/*   Created: 2024/10/19 02:11:10 by beldemir          #+#    #+#             */
+/*   Updated: 2024/10/19 02:17:37 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	checker(int ac, char **av)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int	i;
-	int count;
+	t_list	*ptr;
 
-	i = 1;
-	while (av[i])
+	if (*lst == NULL)
+		*lst = new;
+	else
 	{
-		
-		i++;
-	}	
-}
-
-int	sort_index(int **arr)
-{
-	t_stack	*a;
-
-	
-}
-
-int main(int ac, char *av)
-{
-	int	i;
-
-	i = checker(ac, av);
-	sorter();
-	return (0);
+		ptr = ft_lstlast(*lst);
+		ptr->next = new;
+	}
 }

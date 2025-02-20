@@ -1,42 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
+/*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 07:51:09 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/20 06:40:41 by beldemir         ###   ########.fr       */
+/*   Created: 2024/08/28 18:39:21 by beldemir          #+#    #+#             */
+/*   Updated: 2024/10/13 15:16:56 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	checker(int ac, char **av)
+int	ft_isdigit(int i)
 {
-	int	i;
-	int count;
-
-	i = 1;
-	while (av[i])
-	{
-		
-		i++;
-	}	
-}
-
-int	sort_index(int **arr)
-{
-	t_stack	*a;
-
-	
-}
-
-int main(int ac, char *av)
-{
-	int	i;
-
-	i = checker(ac, av);
-	sorter();
+	if (i <= '9' && i >= '0')
+		return (1);
 	return (0);
 }

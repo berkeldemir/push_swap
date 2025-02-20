@@ -1,13 +1,27 @@
+NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+LIBFT_DIR = ./libft
+LIBFT = $(LIBFT_DIR)/libft.a
+SRCS = push_swap.c
+OBJS = $(SRCS:.c=.o)
 
-all:
-	$(CC) $(CFLAGS) push_swap.c ft_printf.c -o push_swap
+all: $(LIBFT) $(NAME)
+
+$(LIBFT):
+	@make -C $(LIBFT_DIR)
+	@make clean -C $(LIBFT_DIR)
+
+$(NAME): $(OBJS) $(LIBFT)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 clean:
-	rm push_swap
+	@rm -f $(OBJS)
+	@make clean -C $(LIBFT_DIR)
 
 fclean: clean
+	@rm -f $(NAME)
+	@make fclean -C $(LIBFT_DIR)
 
 re: fclean all
 

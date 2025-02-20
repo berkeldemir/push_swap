@@ -1,42 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
+/*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 07:51:09 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/20 06:40:41 by beldemir         ###   ########.fr       */
+/*   Created: 2024/10/11 16:46:41 by beldemir          #+#    #+#             */
+/*   Updated: 2024/10/15 14:27:00 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	checker(int ac, char **av)
+void	ft_bzero(void *s, size_t n)
 {
-	int	i;
-	int count;
-
-	i = 1;
-	while (av[i])
-	{
-		
-		i++;
-	}	
-}
-
-int	sort_index(int **arr)
-{
-	t_stack	*a;
-
-	
-}
-
-int main(int ac, char *av)
-{
-	int	i;
-
-	i = checker(ac, av);
-	sorter();
-	return (0);
+	ft_memset(s, 0, n);
 }

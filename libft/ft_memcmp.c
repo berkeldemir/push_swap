@@ -1,42 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
+/*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 07:51:09 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/20 06:40:41 by beldemir         ###   ########.fr       */
+/*   Created: 2024/10/11 16:50:04 by beldemir          #+#    #+#             */
+/*   Updated: 2024/10/21 11:36:06 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	checker(int ac, char **av)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int	i;
-	int count;
+	char	*ptr1;
+	char	*ptr2;
+	size_t	i;
 
-	i = 1;
-	while (av[i])
+	ptr1 = (char *)s1;
+	ptr2 = (char *)s2;
+	i = 0;
+	while (i < n)
 	{
-		
+		if (ptr1[i] != ptr2[i])
+			return ((unsigned char)ptr1[i] - (unsigned char)ptr2[i]);
 		i++;
-	}	
-}
-
-int	sort_index(int **arr)
-{
-	t_stack	*a;
-
-	
-}
-
-int main(int ac, char *av)
-{
-	int	i;
-
-	i = checker(ac, av);
-	sorter();
+	}
 	return (0);
 }

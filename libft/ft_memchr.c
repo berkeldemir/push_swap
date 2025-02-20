@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raod_s_p.c                                         :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 11:33:39 by beldemir          #+#    #+#             */
-/*   Updated: 2025/01/22 11:52:52 by beldemir         ###   ########.fr       */
+/*   Created: 2024/10/11 16:48:39 by beldemir          #+#    #+#             */
+/*   Updated: 2025/02/20 07:12:42 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-void	s(t_stack *tab,	t_quiet bool)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	//ilk iki eleman yer değişir
-	if (t_quiet == PRINT)
-		ft_printf(s);
-}
+	unsigned char	*ptr;
+	size_t			i;
 
-void	ss(t_stack *a, t_stack *b)
-{
-	s(a);
-	s(b);
-	return ;
-}
-
-void	pa(t_stack *a, t_stack *b)
-{
-	//b'nin ilk elemanını a'nın ilk elemanı yap.
-}
-
-void	pb(t_stack *b, t_stack *a)
-{
-	//a'nın ilk elemanını b'nin ilk elemanı yap.
+	ptr = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		if (ptr[i] == (unsigned char)c)
+			return ((void *)&ptr[i]);
+		else
+			i++;
+	}
+	return (NULL);
 }
