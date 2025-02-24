@@ -3,7 +3,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
-SRCS = push_swap.c ft_printf.c check.c
+SRCS = main.c ft_printf.c create.c utils.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(LIBFT) $(NAME)
@@ -11,7 +11,7 @@ all: $(LIBFT) $(NAME)
 $(LIBFT):
 	@make -C $(LIBFT_DIR)
 
-$(NAME): $(OBJS) $(LIBFT)
+$(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 clean:

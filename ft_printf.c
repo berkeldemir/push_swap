@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
+/*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 20:17:52 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/20 07:18:15 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:06:19 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "./push_swap.h"
 
 static int	ft_print_c(char c)
 {

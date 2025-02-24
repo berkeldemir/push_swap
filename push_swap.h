@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
+/*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 07:46:20 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/20 09:06:30 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:13:35 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,20 @@
 # include <stdarg.h>
 # include "./libft/libft.h"
 
-typedef	struct	s_stack
+typedef	struct	s_info
 {
-	int	*tab;
-	int	len;
-}	t_stack;
+	int	*tab_a;
+	int	*tab_b;
+	int	len_a;
+	int	len_b;
+	int	count;
+}	t_info;
 
 
 int		ft_printf(const char *str, ...);
-t_list	*check(int ac, char **av);
+void	create(int ac, char **av, t_info *i);
+
+void    quit_error(t_info *i);
+void    quit(t_info *i, int code);
 
 #endif

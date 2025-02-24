@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
+/*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 07:51:09 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/20 09:06:57 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:15:07 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "./push_swap.h"
 
 int main(int ac, char **av)
 {
-	t_list	*l;
+	t_info	*i;
 
-	l = check(ac, av);
-	free(l);
+	i = (t_info *)malloc(sizeof(t_info));
+	if (!i)
+		return (0);
+	create(ac, av, i);
+
+	int j = -1;
+	while (++j < 14)
+		ft_printf("%i\n", i->tab_a[j]);
+	free(i->tab_a);
+	free(i->tab_b);
+	free(i);
 	return (0);
 }
