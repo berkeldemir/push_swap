@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 07:51:09 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/24 11:15:07 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/25 19:55:42 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(int ac, char **av)
 	create(ac, av, i);
 
 	int j = -1;
-	while (++j < 14)
+	while (++j < i->len_a)
 		ft_printf("%i\n", i->tab_a[j]);
 	free(i->tab_a);
 	free(i->tab_b);

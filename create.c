@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 08:46:58 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/24 11:25:23 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/25 20:11:55 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,14 @@ static char	*merge_args(int ac, char **av)
 	{
 		j = -1;
 		while (av[i][++j])
+		{
 			if (!ft_isdigit(av[i][j]) && av[i][j] != ' ' && \
 			av[i][j] != '+' && av[i][j] != '-')
 				return (free(tmp2), NULL);
+			if ((av[i][j] == '-' || av[i][j] == '+') && \
+			(!ft_isdigit(av[i][j + 1])))
+				return (free(tmp2), NULL);
+		}
 		tmp1 = ft_strjoin(tmp2, " ");
 		free(tmp2);
 		if (!tmp1)
@@ -46,7 +51,7 @@ static char	*merge_args(int ac, char **av)
 	free(tmp2);
 	if (!tmp1)
 		return (NULL);
-	return (tmp1);
+	return (is_empty(tmp1));
 }
 
 static int	find_count(char *str)
@@ -97,27 +102,6 @@ static int	*generate_a(char *full, int count)
 		return (NULL);
 	}
 	return (tab_a);
-}
-
-
-static int	check_double(int *tab, int count)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (tab[i])
-	{
-		j = i + 1;
-		while (j < count)
-		{
-			if (tab[i] == tab[j])
-				return (-1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
 }
 
 void	create(int ac, char **av, t_info *i)
