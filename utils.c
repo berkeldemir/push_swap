@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:05:27 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/25 20:12:06 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/28 15:02:17 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	check_double(int *tab, int count)
 	int	j;
 
 	i = 0;
-	while (tab[i])
+	while (i < count)
 	{
 		j = i + 1;
 		while (j < count)
@@ -46,13 +46,13 @@ char	*is_empty(char *s)
 		i++;
 	}
 	if (s[i] == '\0')
-		return (NULL);
+		return (free(s), NULL);
 	return (s);
 }
 
 void    quit_error(t_info *i)
 {
-    ft_putendl_fd("Error", 1);
+    ft_printf("Error\n");
     quit(i, 1);
 }
 
