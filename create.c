@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 08:46:58 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/01 12:43:04 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/01 13:14:46 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,12 @@ static int	find_count(char *str)
 
 static int	*generate_a(char *full, int count)
 {
-	int	*tab_a;
+	int	*tmp_a;
 	int	start;
 	int	i;
 
-	tab_a = (int *)malloc(sizeof(int) * count);
-	if (!tab_a)
+	tmp_a = (int *)malloc(sizeof(int) * count);
+	if (!tmp_a)
 		return (NULL);
 	start = 0;
 	i = 0;
@@ -99,38 +99,39 @@ static int	*generate_a(char *full, int count)
 			start++;
 		if (full[start] == '\0')
 			break;
-		if (new_atoi(&full[start], &tab_a[i]) == -1)
-			return (free(tab_a), NULL);
+		if (new_atoi(&full[start], &tmp_a[i]) == -1)
+			return (free(tmp_a), NULL);
 		i++;
 		while (full[start] != ' ' && full[start] != '\0')
 			start++;
 	}
 	if (i != count)
-		return (free(tab_a), NULL);
-	return (tab_a);
+		return (free(tmp_a), NULL);
+	return (tmp_a);
 }
 
 void	create(int ac, char **av, t_info *i)
 {
 	char    *full;
 
+	i->tmp_a = NULL;
 	i->tab_a = NULL;
 	i->tab_b = NULL;
 	i->len_a = 0;
 	i->len_b = 0;
 	i->count = 0;
 	if (ac < 2)
-		quit(i, 0);
+		quit(i, -2);
 	full = merge_args(ac, av);
 	if (full == NULL)
-		quit_error(i);
+		quit(i, -1);
 	i->len_a = find_count(full);
 	if (i->len_a == -1)
-		quit_error(i);
-	i->tab_a = generate_a(full, i->len_a);
-	if (i->tab_a == NULL)
-		quit_error(i);
+		quit(i, -1);
+	i->tmp_a = generate_a(full, i->len_a);
+	if (i->tmp_a == NULL)
+		quit(i, -1);
 	free(full);
-	if (check_double(i->tab_a, i->len_a) == -1)
-		quit_error(i);
+	if (check_double(i->tmp_a, i->len_a) == -1)
+		quit(i, -1);
 }

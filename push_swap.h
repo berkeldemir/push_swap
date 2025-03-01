@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 07:46:20 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/28 16:09:10 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/01 13:09:16 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 typedef	struct	s_info
 {
+	int	*tmp_a;
 	int	*tab_a;
 	int	*tab_b;
 	int	len_a;
@@ -29,7 +30,7 @@ typedef	struct	s_info
 
 int		ft_printf(const char *str, ...);
 void	create(int ac, char **av, t_info *i);
-
+void	reduce(t_info *i);
 int		check_double(int *tab, int count);
 int		new_atoi(const char *str, int *tab_num);
 char	*is_empty(char *s);

@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:05:27 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/28 15:02:17 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/01 13:13:55 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,22 +50,21 @@ char	*is_empty(char *s)
 	return (s);
 }
 
-void    quit_error(t_info *i)
-{
-    ft_printf("Error\n");
-    quit(i, 1);
-}
-
 void    quit(t_info *i, int code)
 {
-    if (i->tab_a)
-        free(i->tab_a);
-    if (i->tab_b)
-        free(i->tab_b);
-    if (i)
-        free(i);
-    if (code == 0)
-        exit(EXIT_SUCCESS);
-    if (code != 0)
-        exit(EXIT_FAILURE);
+	if (i->tab_a)
+		free(i->tab_a);
+	if (i->tab_b)
+		free(i->tab_b);
+	if (i)
+		free(i);
+	if (code == 0)
+		exit(EXIT_SUCCESS);
+	if (code == -1)
+	{
+		ft_printf("Error\n");
+		exit(EXIT_FAILURE);
+	}
+	if (code == -2)
+		exit(EXIT_FAILURE);
 }
