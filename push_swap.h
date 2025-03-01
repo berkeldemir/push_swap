@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 07:46:20 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/01 13:50:04 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/01 15:01:02 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 # include <stdarg.h>
 # include "./libft/libft.h"
 
+typedef struct s_algo
+{
+	char **a;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+}	t_algo;
+
 typedef struct s_info
 {
 	int	*tmp_a;
@@ -25,6 +30,10 @@ typedef struct s_info
 	int	len_a;
 	int	len_b;
 	int	count;
+	t_algo	*radix;
+	t_algo	*turk;
+	t_algo	*quick;
+	
 }	t_info;
 
 int		ft_printf(const char *str, ...);
