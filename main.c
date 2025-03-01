@@ -6,13 +6,13 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 07:51:09 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/01 13:08:44 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/01 13:48:44 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_info	*i;
 

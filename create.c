@@ -6,13 +6,13 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 08:46:58 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/01 13:14:46 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/01 13:48:30 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-static char *merge_args_while(char **av, char **tmp1, char **tmp2)
+static char	*merge_args_while(char **av, char **tmp1, char **tmp2)
 {
 	int	j;
 	int	i;
@@ -70,13 +70,13 @@ static int	find_count(char *str)
 	count = 0;
 	while (str[i])
 	{
-		if ((ft_isdigit((int)str[i - 1]) ||\
+		if ((ft_isdigit((int)str[i - 1]) || \
 		str[i - 1] == '+' || str[i - 1] == '-') && \
 		(str[i] == ' ' || str[i] == '\0'))
 			count++;
 		if ((str[i - 1] == '+' || str[i - 1] == '-') && \
 		(str[i] == ' ' || str[i] == '\0'))
-			return (-1); // + veya -'den sonra sayı yok demek.
+			return (-1);
 		i++;
 	}
 	return (count);
@@ -98,7 +98,7 @@ static int	*generate_a(char *full, int count)
 		while (full[start] == ' ' && full[start] != '\0')
 			start++;
 		if (full[start] == '\0')
-			break;
+			break ;
 		if (new_atoi(&full[start], &tmp_a[i]) == -1)
 			return (free(tmp_a), NULL);
 		i++;
@@ -112,7 +112,7 @@ static int	*generate_a(char *full, int count)
 
 void	create(int ac, char **av, t_info *i)
 {
-	char    *full;
+	char	*full;
 
 	i->tmp_a = NULL;
 	i->tab_a = NULL;

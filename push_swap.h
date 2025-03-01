@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 07:46:20 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/01 13:09:16 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/01 13:50:04 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdarg.h>
 # include "./libft/libft.h"
 
-typedef	struct	s_info
+typedef struct s_info
 {
 	int	*tmp_a;
 	int	*tab_a;
@@ -27,14 +27,13 @@ typedef	struct	s_info
 	int	count;
 }	t_info;
 
-
 int		ft_printf(const char *str, ...);
 void	create(int ac, char **av, t_info *i);
 void	reduce(t_info *i);
 int		check_double(int *tab, int count);
 int		new_atoi(const char *str, int *tab_num);
 char	*is_empty(char *s);
-void    quit_error(t_info *i);
-void    quit(t_info *i, int code);
+void	quit_error(t_info *i);
+void	quit(t_info *i, int code);
 
 #endif

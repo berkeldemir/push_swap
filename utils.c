@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:05:27 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/01 13:13:55 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/01 13:49:40 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	*is_empty(char *s)
 	return (s);
 }
 
-void    quit(t_info *i, int code)
+void	quit(t_info *i, int code)
 {
 	if (i->tab_a)
 		free(i->tab_a);
