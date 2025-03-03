@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 13:53:33 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/02 10:20:04 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/03 12:12:58 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,7 @@ void    sort(t_info *i)
 	}
 	if (i->len_a == 4 || i->len_a == 5)
 		sort_4_5(i);
-	if (i->len_a > 5 && i->len_a < 50)
+	if (i->len_a > 5 && i->len_a < 100)
 		
-	if (check_sorted(i) == 1)
-		return (1);
+	check_sorted(i);
 }
