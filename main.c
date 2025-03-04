@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 07:51:09 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/04 10:15:16 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/04 12:45:15 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,32 @@
 int	main(int ac, char **av)
 {
 	t_info	*i;
-	int		j;
-
 	i = (t_info *)malloc(sizeof(t_info));
 	if (!i)
 		return (0);
 	create_tmp_a(ac, av, i);
 	reduce_tmp_a(i);
 	convert_st_a(i);
-	j = 10;
-	while (j--)
+
+	push_b(i, LOUD);
+	push_b(i, LOUD);
+	//push_a(i, LOUD);
+
+	t_stack *head = i->st_a;
+	ft_printf("\nA:\t");
+	while (head)
 	{
-		ft_printf("%i\n", i->st_a->num);
-		if (i->st_a->next == NULL)
-			break ;
-		i->st_a = i->st_a->next;
+		ft_printf("%i\t", head->num);
+		head = head->next;
 	}
-	ft_printf("i\na: %i\nb: %i\n", i->len_total, i->len_a, i->len_b);
+	t_stack *head2 = i->st_b;
+	ft_printf("\nB:\t");
+	while (head2)
+	{
+		ft_printf("%i\t", head2->num);
+		head2 = head2->next;
+	}
+	ft_printf("\nt: %i\na: %i\nb: %i\n", i->len_total, i->len_a, i->len_b);
 	quit(i, '+');
 	return (0);
 }

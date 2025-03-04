@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:05:27 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/04 10:12:50 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/04 12:30:23 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ void	quit(t_info *i, char code)
 {
 	if (i->st_a)
 		free_stack(i->st_a);
+	if (i->st_b)
+		free_stack(i->st_b);
 	if (i)
 		free(i);
 	if (code == '+')

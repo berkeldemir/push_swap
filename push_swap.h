@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 07:46:20 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/04 10:12:35 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/04 12:28:16 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include "./libft/libft.h"
+
+# define SILENT -1
+# define LOUD 1
 
 typedef struct s_stack
 {
@@ -37,11 +40,25 @@ typedef struct s_info
 
 int		ft_printf(const char *str, ...);
 
-int		find_stack_size(t_stack *stack);
 int		choosen_index_from_stack(t_stack *stack, int index);
 int		check_stack_sorted(t_stack *stack);
 int		check_stack_circular_sorted(t_stack *stack);
 t_stack	*find_smallest_on_stack(t_stack *stack);
+t_stack	*head_of_stack(t_stack *stack);
+
+void	swap_a(t_info *i, int flag);
+void	push_a(t_info *i, int flag);
+void	rotate_a(t_info *i, int flag);
+void	reverse_rotate_a(t_info *i, int flag);
+
+void	swap_b(t_info *i, int flag);
+void	push_b(t_info *i, int flag);
+void	rotate_b(t_info *i, int flag);
+void	reverse_rotate_b(t_info *i, int flag);
+
+void	swap_both(t_info *i, int flag);
+void	rotate_both(t_info *i, int flag);
+void	reverse_rotate_both(t_info *i, int flag);
 
 void	init_info(t_info *i);
 void	create_tmp_a(int ac, char **av, t_info *i);

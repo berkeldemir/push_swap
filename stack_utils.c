@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 07:35:37 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/04 10:13:37 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/04 11:55:34 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@ t_stack	*find_smallest_on_stack(t_stack *stack)
 
 int	check_stack_circular_sorted(t_stack *stack)
 {
-	int		tmp;
+	t_stack *smallest;
+    int tmp;
 
-	stack = find_smallest_on_stack(stack);
+    smallest = find_smallest_on_stack(stack);
+    tmp = smallest->num;
 	while (stack->next != NULL)
 	{
 		if (stack->num > stack->next->num)
@@ -78,14 +80,9 @@ int	choosen_index_from_stack(t_stack *stack, int index)
 	return (stack->num);
 }
 
-int	find_stack_size(t_stack *stack)
+t_stack	*head_of_stack(t_stack *stack)
 {
-	int	i;
-
-	while (stack->prev != NULL)
+	while (stack && stack->prev)
 		stack = stack->prev;
-	i = -1;
-	while (stack->next != NULL && ++i >= 0)
-		stack = stack->next;
-	return (i);
+	return (stack);
 }
