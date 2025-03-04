@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 07:46:20 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/04 12:28:16 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/04 15:07:11 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	init_info(t_info *i);
 void	create_tmp_a(int ac, char **av, t_info *i);
 void	reduce_tmp_a(t_info *i);
 void	convert_st_a(t_info *info);
+void	sort(t_info *i);
 int		check_double(int *tab, int count);
 int		new_atoi(const char *str, int *tab_num);
 char	*is_empty(char *s);

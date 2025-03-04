@@ -6,27 +6,14 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 07:51:09 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/04 14:19:15 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/04 15:06:34 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-int	main(int ac, char **av)
+static void	print_stacks(t_info *i)
 {
-	t_info	*i;
-	i = (t_info *)malloc(sizeof(t_info));
-	if (!i)
-		return (0);
-	create_tmp_a(ac, av, i);
-	reduce_tmp_a(i);
-	convert_st_a(i);
-
-	push_b(i, LOUD);
-	push_b(i, LOUD);
-	push_b(i, LOUD);
-	push_b(i, LOUD);
-
 	t_stack *head = i->st_a;
 	ft_printf("\nA:\t");
 	while (head)
@@ -42,6 +29,22 @@ int	main(int ac, char **av)
 		head2 = head2->next;
 	}
 	ft_printf("\nt: %i\na: %i\nb: %i\n", i->len_total, i->len_a, i->len_b);
+}
+
+
+int	main(int ac, char **av)
+{
+	t_info	*i;
+	i = (t_info *)malloc(sizeof(t_info));
+	if (!i)
+		return (0);
+	create_tmp_a(ac, av, i);
+	reduce_tmp_a(i);
+	convert_st_a(i);
+	print_stacks(i);
+	if (check_stack_sorted(i->st_a) == -1)
+		sort(i);
+	print_stacks(i);
 	quit(i, '+');
 	return (0);
 }
