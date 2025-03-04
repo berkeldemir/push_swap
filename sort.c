@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:31:09 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/04 18:43:45 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/04 19:51:17 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,6 @@ void	sort_circular_stack(t_info *i)
 			reverse_rotate_a(i, LOUD);
 }
 
-
 void	sort(t_info *i)
 {
 	if (check_stack_circular_sorted(i->st_a) == 1)
@@ -121,7 +120,7 @@ void	sort(t_info *i)
 	else if (i->len_a == 5)
 		sort_5_numbers(i);
 	else
-		(ft_printf("no\n"), quit(i, '+'));
+		; //big_sort(i);
 	if (check_stack_sorted(i->st_a) == 1 && i->len_a == i->len_total)
 		quit(i, '+');
 }
