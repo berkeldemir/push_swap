@@ -1,36 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reduce.c                                           :+:      :+:    :+:   */
+/*   convert.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/01 12:58:52 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/04 08:52:09 by beldemir         ###   ########.fr       */
+/*   Created: 2025/03/04 08:46:49 by beldemir          #+#    #+#             */
+/*   Updated: 2025/03/04 10:13:51 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-void	reduce_tmp_a(t_info *info)
+void	convert_st_a(t_info *info)
 {
-	int	i;
-	int	j;
-	int	new_value;
+	t_stack	*old;
+	t_stack	*new;
+	int		i;
 
-	info->tab_a = (int *)malloc(sizeof(int) * info->len_a);
-	if (!info->tab_a)
+	info->st_a = (t_stack *)malloc(sizeof(t_stack));
+	if (!info->st_a)
 		quit(info, '-');
+	info->st_a->prev = NULL;
+	info->st_a->num = info->tab_a[0];
+	info->st_a->next = NULL;
+	old = info->st_a;
 	i = 0;
-	while (i < info->len_a)
+	while (++i < info->len_a)
 	{
-		j = 0;
-		new_value = 0;
-		while (j < info->len_a)
-			if (info->tmp_a[j++] < info->tmp_a[i])
-				new_value++;
-		info->tab_a[i] = new_value;
-		i++;
+		new = (t_stack *)malloc(sizeof(t_stack));
+		if (!new)
+			quit(info, '-');
+		old->next = new;
+		new->prev = old;
+		new->num = info->tab_a[i];
+		new->next = NULL;
+		old = new;
 	}
-	free(info->tmp_a);
+	free(info->tab_a);
 }

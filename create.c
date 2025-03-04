@@ -6,13 +6,13 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 08:46:58 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/01 13:48:30 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/04 10:10:22 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-static char	*merge_args_while(char **av, char **tmp1, char **tmp2)
+static char	*merge_args(char **av, char **tmp1, char **tmp2)
 {
 	int	j;
 	int	i;
@@ -40,7 +40,7 @@ static char	*merge_args_while(char **av, char **tmp1, char **tmp2)
 	return (*tmp2);
 }
 
-static char	*merge_args(int ac, char **av)
+static char	*parse_args(int ac, char **av)
 {
 	char	*tmp1;
 	char	*tmp2;
@@ -51,7 +51,7 @@ static char	*merge_args(int ac, char **av)
 	tmp2 = ft_strdup("");
 	if (!tmp2)
 		return (NULL);
-	tmp2 = merge_args_while(av, &tmp1, &tmp2);
+	tmp2 = merge_args(av, &tmp1, &tmp2);
 	if (!tmp2)
 		return (NULL);
 	tmp1 = ft_strjoin(tmp2, " ");
@@ -110,28 +110,24 @@ static int	*generate_a(char *full, int count)
 	return (tmp_a);
 }
 
-void	create(int ac, char **av, t_info *i)
+void	create_tmp_a(int ac, char **av, t_info *i)
 {
 	char	*full;
 
-	i->tmp_a = NULL;
-	i->tab_a = NULL;
-	i->tab_b = NULL;
-	i->len_a = 0;
-	i->len_b = 0;
-	i->count = 0;
+	init_info(i);
 	if (ac < 2)
-		quit(i, -2);
-	full = merge_args(ac, av);
+		quit(i, '-');
+	full = parse_args(ac, av);
 	if (full == NULL)
-		quit(i, -1);
+		quit(i, 'e');
 	i->len_a = find_count(full);
 	if (i->len_a == -1)
-		quit(i, -1);
+		quit(i, 'e');
+	i->len_total = i->len_a;
 	i->tmp_a = generate_a(full, i->len_a);
 	if (i->tmp_a == NULL)
-		quit(i, -1);
+		quit(i, 'e');
 	free(full);
 	if (check_double(i->tmp_a, i->len_a) == -1)
-		quit(i, -1);
+		(free(i->tmp_a), quit(i, 'e'));
 }

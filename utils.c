@@ -6,11 +6,22 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:05:27 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/01 13:49:40 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/04 10:12:50 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
+
+void	init_info(t_info *i)
+{
+	i->tmp_a = NULL;
+	i->tab_a = NULL;
+	i->st_a = NULL;
+	i->st_b = NULL;
+	i->len_a = 0;
+	i->len_b = 0;
+	i->len_total = 0;
+}
 
 int	check_double(int *tab, int count)
 {
@@ -50,21 +61,33 @@ char	*is_empty(char *s)
 	return (s);
 }
 
-void	quit(t_info *i, int code)
+static void	free_stack(t_stack *stack)
 {
-	if (i->tab_a)
-		free(i->tab_a);
-	if (i->tab_b)
-		free(i->tab_b);
+	t_stack	*tmp;
+
+	while (stack && stack->prev)
+		stack = stack->prev;
+	while (stack)
+	{
+		tmp = stack->next;
+		free(stack);
+		stack = tmp;
+	}
+}
+
+void	quit(t_info *i, char code)
+{
+	if (i->st_a)
+		free_stack(i->st_a);
 	if (i)
 		free(i);
-	if (code == 0)
+	if (code == '+')
 		exit(EXIT_SUCCESS);
-	if (code == -1)
+	if (code == 'e')
 	{
-		ft_printf("Error\n");
+		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
-	if (code == -2)
+	if (code == '-')
 		exit(EXIT_FAILURE);
 }

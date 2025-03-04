@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 07:51:09 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/01 13:48:44 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/04 10:15:16 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,23 @@
 int	main(int ac, char **av)
 {
 	t_info	*i;
+	int		j;
 
 	i = (t_info *)malloc(sizeof(t_info));
 	if (!i)
 		return (0);
-	create(ac, av, i);
-	reduce(i);
-	int j = -1;
-	while (++j < i->len_a)
-		ft_printf("%i\n", i->tab_a[j]);
-	free(i->tab_a);
-	free(i->tab_b);
-	free(i);
+	create_tmp_a(ac, av, i);
+	reduce_tmp_a(i);
+	convert_st_a(i);
+	j = 10;
+	while (j--)
+	{
+		ft_printf("%i\n", i->st_a->num);
+		if (i->st_a->next == NULL)
+			break ;
+		i->st_a = i->st_a->next;
+	}
+	ft_printf("i\na: %i\nb: %i\n", i->len_total, i->len_a, i->len_b);
+	quit(i, '+');
 	return (0);
 }

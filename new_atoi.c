@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 15:56:42 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/03 12:12:16 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/04 07:18:45 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,6 @@ int	new_atoi(const char *str, int *tab_num)
 	if (str[i] != '\0' && (str[i] == '-' || str[i] == '+'))
 		if (str[i++] == '-')
 			sign *= -1;
-	if (str[i - 1])
-		if ((str[i - 1] == '-' || str[i - 1] == '+') && str[i] == '0')
-			return (-1);
 	while (str[i] != '\0' && ft_isdigit(str[i]) == 1)
 	{
 		num = (num * 10) + (str[i++] - 48);
