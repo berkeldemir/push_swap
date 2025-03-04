@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 07:35:37 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/04 14:20:59 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/04 17:21:40 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,17 @@
 t_stack	*find_smallest_on_stack(t_stack *stack)
 {
 	t_stack	*found;
+	t_stack	*st;
 
-	while (stack->prev != NULL)
-		stack = stack->prev;
-	found = stack;
-	while (stack->next != NULL)
+	st = stack;
+	while (st->prev != NULL)
+		st = st->prev;
+	found = st;
+	while (st != NULL)
 	{
-		if (stack->num < found->num)
-			found = stack;
-		stack = stack->next;
+		if (st->num < found->num)
+			found = st;
+		st = st->next;
 	}
 	return (found);
 }
@@ -74,7 +76,7 @@ int	choosen_index_from_stack(t_stack *stack, int index)
 
 	while (stack->prev != NULL)
 		stack = stack->prev;
-	i = -1;
+	i = 0;
 	while (stack->next != NULL && ++i < index)
 		stack = stack->next;
 	return (stack->num);
