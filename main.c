@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 07:51:09 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/04 12:45:15 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/04 14:19:15 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int	main(int ac, char **av)
 
 	push_b(i, LOUD);
 	push_b(i, LOUD);
-	//push_a(i, LOUD);
+	push_b(i, LOUD);
+	push_b(i, LOUD);
 
 	t_stack *head = i->st_a;
 	ft_printf("\nA:\t");

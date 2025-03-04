@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 07:35:37 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/04 11:55:34 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/04 14:20:59 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ t_stack	*find_smallest_on_stack(t_stack *stack)
 
 int	check_stack_circular_sorted(t_stack *stack)
 {
-	t_stack *smallest;
-    int tmp;
+	t_stack	*smallest;
+	int		tmp;
 
-    smallest = find_smallest_on_stack(stack);
-    tmp = smallest->num;
+	smallest = find_smallest_on_stack(stack);
+	tmp = smallest->num;
 	while (stack->next != NULL)
 	{
 		if (stack->num > stack->next->num)
