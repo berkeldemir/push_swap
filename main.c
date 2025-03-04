@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 07:51:09 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/04 17:00:36 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/04 17:43:46 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	print_stacks(t_info *i)
 	}
 	ft_printf("\nt: %i\na: %i\nb: %i\n\n", i->len_total, i->len_a, i->len_b);
 }
-
 
 int	main(int ac, char **av)
 {

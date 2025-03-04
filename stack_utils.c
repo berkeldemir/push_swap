@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 07:35:37 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/04 17:21:40 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/04 18:33:14 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,27 +32,28 @@ t_stack	*find_smallest_on_stack(t_stack *stack)
 
 int	check_stack_circular_sorted(t_stack *stack)
 {
-	t_stack	*smallest;
+	t_stack	*start;
+	t_stack	*head;
 	int		tmp;
+	int		num;
 
-	smallest = find_smallest_on_stack(stack);
-	tmp = smallest->num;
-	while (stack->next != NULL)
+	if (!stack || !stack->next)
+		return (1);
+	start = find_smallest_on_stack(stack);
+	tmp = start->num;
+	head = stack;
+	while (start->next != NULL)
 	{
-		if (stack->num > stack->next->num)
+		if (start->num != start->next->num - 1)
 			return (-1);
-		stack = stack->next;
+		start = start->next;
 	}
-	tmp = stack->num;
-	while (stack->prev != NULL)
-		stack = stack->prev;
-	if (tmp > stack->num)
-		return (-1);
-	while (stack->next != smallest)
+	num = start->num;
+	while (head->num != tmp)
 	{
-		if (stack->num > stack->next->num)
+		if (head->num != ++num)
 			return (-1);
-		stack = stack->next;
+		head = head->next;
 	}
 	return (1);
 }

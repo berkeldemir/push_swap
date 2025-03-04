@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:31:09 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/04 17:41:29 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/04 18:43:45 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,33 @@ static void	sort_5_numbers(t_info *i)
 	push_a(i, LOUD);
 }
 
+void	sort_circular_stack(t_info *i)
+{
+	int		index;
+	t_stack	*ptr;
+
+	index = 0;
+	ptr = i->st_a;
+	while (ptr)
+	{
+		if (ptr->num == find_smallest_on_stack(i->st_a)->num)
+			break ;
+		ptr = ptr->next;
+		index++;
+	}
+	if (index <= (i->len_a / 2))
+		while (index-- > 0)
+			rotate_a(i, LOUD);
+	else
+		while (index++ < i->len_a)
+			reverse_rotate_a(i, LOUD);
+}
+
+
 void	sort(t_info *i)
 {
+	if (check_stack_circular_sorted(i->st_a) == 1)
+		(sort_circular_stack(i), quit(i, '+'));
 	if (i->len_a == 2)
 		(swap_a(i, LOUD));
 	else if (i->len_a == 3)
