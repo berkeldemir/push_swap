@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 19:28:09 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/05 18:29:04 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/05 22:47:35 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,59 +24,56 @@ static int	calc_max_bits(t_info *i)
 	return (max_bit);
 }
 
-static void	(*choose_ra_rra(t_info *i, int bit))(t_info *i, int flag)
+static void (*choose_ra_rra(t_info *info, int bit))(t_info *info, int flag)
 {
-	t_stack	*ptr;
-	int		i_ra;
-	int		i_rra;
+    t_stack *ptr_head;
+	t_stack	*ptr_last;
+    int index;
 
-	i_ra = 0;
-	i_rra = 0;
-	ptr = i->st_a;
-	while (ptr)
+    index = 0;
+    ptr_head = head_of_stack(info->st_a)->next;
+	ptr_last = ptr_head;
+	while (ptr_last->next)
+		ptr_last = ptr_last->next;
+    while (ptr_head->next && ptr_last->prev)
 	{
-		if (((ptr->num >> bit) & 1) != 0)
-		{
-			if (pos_of_number_on_stack(i->st_a, ptr->num) < (i->len_a / 2))
-				i_ra++;
-			else
-				i_rra++;
-		}
-		ptr = ptr->next;
+		if (((ptr_last->num >> bit) & 1) == 0)
+			return (&reverse_rotate_b);
+		else if (((ptr_head->num >> bit) & 1) == 0)
+			return (&rotate_a);
+		ptr_head = ptr_head->next;
+		ptr_last = ptr_last->prev;
 	}
-	//ft_printf("\nra: %i\nrra:%i\n", i_ra, i_rra);
-	if (i_ra >= i_rra)
-		return (&rotate_a);
-	return (&reverse_rotate_a);
+	return (&rotate_a);
 }
 
-void	big_sort(t_info *i)
+void	big_sort(t_info *info)
 {
-	int		max_bit;
-	int		iter;
+	int		i;
 	int		j;
+	int		len;
 	t_stack	*ptr;
 	void	(*funct)(t_info *i, int flag);
 
-	if (i->len_a != i->len_total)
+	if (info->len_a != info->len_total)
 		ft_printf("An error occured.\n");
-	max_bit = calc_max_bits(i);
-	j = 0;
-	while (j < max_bit)
+	i = 0;
+	while (i < calc_max_bits(info))
 	{
-		funct = choose_ra_rra(i, max_bit - j);
-		iter = 0;
-		ptr = i->st_a;
-		while (ptr)
+		j = 0;
+		len = info->len_a;
+		while (j < len)
 		{
-			if (((ptr->num >> j) & 1) != 0)
-				funct(i, LOUD);
+			funct = choose_ra_rra(info, i);
+			ptr = head_of_stack(info->st_a);
+			if (((ptr->num >> i) & 1) == 1)
+				funct(info, LOUD);
 			else
-				push_b(i, LOUD);
-			ptr = ptr->next;
-			iter++;
+				push_b(info, LOUD);
+			j++;
 		}
-		j++;
+		while (info->len_b != 0)
+			push_a(info, LOUD);
+		i++;
 	}
-	push_a(i, LOUD);
 }

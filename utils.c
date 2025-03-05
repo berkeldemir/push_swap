@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:05:27 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/05 16:44:05 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/05 22:02:50 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,11 @@ static void	free_stack(t_stack *stack)
 
 void	quit(t_info *i, char code)
 {
+	/*
+	if (check_stack_sorted(head_of_stack(i->st_a)) == -1)
+		return ;
+	*/
+	//print_stacks(i);
 	if (i->st_a)
 		free_stack(i->st_a);
 	if (i->st_b)

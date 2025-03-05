@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 07:35:37 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/05 16:56:14 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/05 21:38:55 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,16 @@ int	check_stack_circular_sorted(t_stack *stack)
 
 int	check_stack_sorted(t_stack *stack)
 {
-	while (stack->prev != NULL)
-		stack = stack->prev;
-	while (stack->next != NULL)
+	t_stack	*st;
+	
+	st = head_of_stack(stack);
+	if (!st)
+		return (1);
+	while (st->next)
 	{
-		if (stack->num > stack->next->num)
+		if (st->num > st->next->num)
 			return (-1);
-		stack = stack->next;
+		st = st->next;
 	}
 	return (1);
 }

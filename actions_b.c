@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 11:34:26 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/05 17:53:15 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/05 21:43:53 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	swap_b(t_info *i, int flag)
 	i->st_b->next->num = tmp;
 	if (flag == LOUD)
 		ft_putendl_fd("sb", 1);
-	if (check_stack_sorted(i->st_a) == 1 && flag == LOUD)
+	if (check_stack_sorted(i->st_a) == 1 && flag == LOUD && \
+		head_of_stack(i->st_a)->num == 0)
 		quit(i, '+');
 }
 
@@ -53,7 +54,8 @@ void	push_b(t_info *i, int flag)
 	i->len_b++;
 	if (flag == LOUD)
 		ft_putendl_fd("pb", 1);
-	if (check_stack_sorted(i->st_a) == 1 && flag == LOUD)
+	if (i->st_a && check_stack_sorted(i->st_a) == 1 && flag == LOUD && \
+		i->len_a == i->len_total)
 		quit(i, '+');
 }
 
@@ -79,7 +81,8 @@ void	rotate_b(t_info *i, int flag)
 	i->st_b = new_head;
 	if (flag == LOUD)
 		ft_putendl_fd("rb", 1);
-	if (check_stack_sorted(i->st_a) == 1 && flag == LOUD)
+	if (i->st_a && check_stack_sorted(i->st_a) == 1 && flag == LOUD && \
+		i->len_a == i->len_total)
 		quit(i, '+');
 }
 
@@ -106,6 +109,7 @@ void	reverse_rotate_b(t_info *i, int flag)
 	i->st_b = ptr;
 	if (flag == LOUD)
 		ft_putendl_fd("rrb", 1);
-	if (check_stack_sorted(i->st_a) == 1 && flag == LOUD)
+	if (i->st_a && check_stack_sorted(i->st_a) == 1 && flag == LOUD && \
+		i->len_a == i->len_total)
 		quit(i, '+');
 }

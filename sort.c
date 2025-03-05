@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:31:09 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/05 16:37:22 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/05 22:34:32 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,33 +58,6 @@ static void	sort_4_numbers(t_info *i)
 	push_a(i, LOUD);
 }
 
-static void	sort_5_numbers(t_info *i)
-{
-	int		index;
-	t_stack	*ptr;
-
-	index = 0;
-	ptr = i->st_a;
-	while (ptr)
-	{
-		if (ptr->num == find_smallest_on_stack(i->st_a)->num)
-			break ;
-		ptr = ptr->next;
-		index++;
-	}
-	if (index == 1)
-		(rotate_a(i, LOUD));
-	if (index == 2)
-		(rotate_a(i, LOUD), rotate_a(i, LOUD));
-	if (index == 3)
-		(reverse_rotate_a(i, LOUD), reverse_rotate_a(i, LOUD));
-	if (index == 4)
-		(reverse_rotate_a(i, LOUD));
-	push_b(i, LOUD);
-	sort_4_numbers(i);
-	push_a(i, LOUD);
-}
-
 void	sort_circular_stack(t_info *i)
 {
 	int		index;
@@ -115,8 +88,6 @@ void	sort(t_info *i)
 		sort_3_numbers(i);
 	else if (i->len_a == 4)
 		sort_4_numbers(i);
-	else if (i->len_a == 5)
-		sort_5_numbers(i);
 	else
 		big_sort(i);
 	if (check_stack_sorted(i->st_a) == 1 && i->len_a == i->len_total)
