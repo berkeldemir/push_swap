@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 07:35:37 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/04 18:33:14 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/05 16:56:14 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,18 +71,22 @@ int	check_stack_sorted(t_stack *stack)
 	return (1);
 }
 
-int	choosen_index_from_stack(t_stack *stack, int index)
+int	pos_of_number_on_stack(t_stack *stack, int number)
 {
-	int	i;
+	int pos;
 
 	while (stack->prev != NULL)
 		stack = stack->prev;
-	i = 0;
-	while (stack->next != NULL && ++i < index)
+	pos = 0;
+	while (stack->next != NULL)
+	{
+		if (stack->num == number)
+			break ;
 		stack = stack->next;
-	return (stack->num);
+		pos++;
+	}
+	return (pos);
 }
-
 t_stack	*head_of_stack(t_stack *stack)
 {
 	while (stack && stack->prev)

@@ -5,7 +5,7 @@ LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 SRCS = main.c ft_printf.c create.c reduce.c convert.c \
 		utils.c new_atoi.c actions_b.c actions_a.c actions_both.c \
-		stack_utils.c sort.c
+		stack_utils.c stack_utils2.c sort.c big_sort.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(LIBFT) $(NAME)

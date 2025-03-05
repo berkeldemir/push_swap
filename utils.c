@@ -6,11 +6,12 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:05:27 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/04 12:30:23 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/05 16:44:05 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
+#include <limits.h>
 
 void	init_info(t_info *i)
 {
@@ -21,6 +22,8 @@ void	init_info(t_info *i)
 	i->len_a = 0;
 	i->len_b = 0;
 	i->len_total = 0;
+	i->target_a = (size_t)-1;
+	i->target_b = (size_t)-1;
 }
 
 int	check_double(int *tab, int count)
