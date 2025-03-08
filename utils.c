@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:05:27 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/05 22:02:50 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/08 19:12:40 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ void	init_info(t_info *i)
 	i->len_total = 0;
 	i->target_a = (size_t)-1;
 	i->target_b = (size_t)-1;
+	i->ra = 0;
+	i->rra = 0;
+	i->rb = 0;
+	i->rrb = 0;
 }
 
 int	check_double(int *tab, int count)
@@ -84,7 +88,7 @@ void	quit(t_info *i, char code)
 	if (check_stack_sorted(head_of_stack(i->st_a)) == -1)
 		return ;
 	*/
-	//print_stacks(i);
+	print_stacks(i);
 	if (i->st_a)
 		free_stack(i->st_a);
 	if (i->st_b)

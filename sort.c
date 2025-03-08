@@ -6,13 +6,13 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:31:09 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/05 22:34:32 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/08 19:03:33 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-static void	sort_3_numbers(t_info *i)
+void	sort_3_numbers(t_info *i)
 {	
 	int	x;
 	int	y;
@@ -83,13 +83,11 @@ void	sort_circular_stack(t_info *i)
 void	sort(t_info *i)
 {
 	if (check_stack_circular_sorted(i->st_a) == 1)
-		(sort_circular_stack(i), quit(i, '+'));
+		sort_circular_stack(i);
 	else if (i->len_a == 3)
 		sort_3_numbers(i);
 	else if (i->len_a == 4)
 		sort_4_numbers(i);
 	else
 		big_sort(i);
-	if (check_stack_sorted(i->st_a) == 1 && i->len_a == i->len_total)
-		quit(i, '+');
 }

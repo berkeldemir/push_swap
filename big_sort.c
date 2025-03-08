@@ -6,74 +6,64 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 19:28:09 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/05 22:47:35 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/08 19:55:15 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-static int	calc_max_bits(t_info *i)
+static void	send_to_b(t_info *i)
 {
-	int		max_num;
-	int		max_bit;
+	int	isrrb;
 
-	max_num = find_biggest_on_stack(i->st_a)->num;
-	max_bit = 0;
-	while ((max_num >> max_bit) != 0)
-		max_bit++;
-	return (max_bit);
-}
-
-static void (*choose_ra_rra(t_info *info, int bit))(t_info *info, int flag)
-{
-    t_stack *ptr_head;
-	t_stack	*ptr_last;
-    int index;
-
-    index = 0;
-    ptr_head = head_of_stack(info->st_a)->next;
-	ptr_last = ptr_head;
-	while (ptr_last->next)
-		ptr_last = ptr_last->next;
-    while (ptr_head->next && ptr_last->prev)
+	isrrb = 0;
+	while (i->len_a > 3)
 	{
-		if (((ptr_last->num >> bit) & 1) == 0)
-			return (&reverse_rotate_b);
-		else if (((ptr_head->num >> bit) & 1) == 0)
-			return (&rotate_a);
-		ptr_head = ptr_head->next;
-		ptr_last = ptr_last->prev;
-	}
-	return (&rotate_a);
-}
-
-void	big_sort(t_info *info)
-{
-	int		i;
-	int		j;
-	int		len;
-	t_stack	*ptr;
-	void	(*funct)(t_info *i, int flag);
-
-	if (info->len_a != info->len_total)
-		ft_printf("An error occured.\n");
-	i = 0;
-	while (i < calc_max_bits(info))
-	{
-		j = 0;
-		len = info->len_a;
-		while (j < len)
+		calc_cost_a(i);
+		print_stacks(i);
+		ft_printf("\nTABLE:\tra:%i\trra:%i\trb:%i\trrb:%i\n", i->ra, i->rra, i->rb, i->rrb);
+		if (i->rrb > i->rb)
+			isrrb = 1;
+		while (i->ra > 0 && i->rb > 0)
+			(rotate_both(i, LOUD), i->ra--, i->rb--);
+		while (i->rra > 0 && i->rrb > 0)
+			(reverse_rotate_both(i, LOUD), i->rra--, i->rrb--);
+		while (i->ra > 0)
+			(rotate_a(i, LOUD), i->ra--);
+		while (i->rra > 0)
+			(reverse_rotate_a(i, LOUD), i->rra--);
+		while (i->rb > 0)
+			(rotate_b(i, LOUD), i->rb--);
+		while (i->rrb > 0)
+			(reverse_rotate_b(i, LOUD), i->rrb--);
+		push_b(i, LOUD);
+		while (check_stack_reverse_sorted(i->st_b) == -1)
 		{
-			funct = choose_ra_rra(info, i);
-			ptr = head_of_stack(info->st_a);
-			if (((ptr->num >> i) & 1) == 1)
-				funct(info, LOUD);
+			sleep(2);
+			if (isrrb == 1)
+				reverse_rotate_b(i, LOUD);
 			else
-				push_b(info, LOUD);
-			j++;
+				rotate_b(i, LOUD);
+			print_stacks(i);
 		}
-		while (info->len_b != 0)
-			push_a(info, LOUD);
-		i++;
 	}
+	sort_3_numbers(i);
+}
+
+/*
+static void	get_back_to_a(t_info *info)
+{
+	(void *)info;
+	return ;
+}
+*/
+void	big_sort(t_info *i)
+{
+	push_b(i, LOUD);
+	push_b(i, LOUD);
+	send_to_b(i);
+	//sort_3_numbers(i);
+	//while (i->st_b)
+	//	push_a(i, LOUD);
+	//get_back_to_a(i);
 }

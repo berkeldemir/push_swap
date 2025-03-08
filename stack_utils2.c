@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 15:54:17 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/05 16:56:22 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/08 19:52:51 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,20 @@ int	number_on_the_index(t_stack *stack, int index)
 		ptr = ptr->next;
 	}
 	return (ptr->num);
+}
+
+int	check_stack_reverse_sorted(t_stack *stack)
+{
+	t_stack	*st;
+
+	st = head_of_stack(stack);
+	if (!st)
+		return (1);
+	while (st->next)
+	{
+		if (st->num < st->next->num)
+			return (-1);
+		st = st->next;
+	}
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 10:17:15 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/05 21:44:07 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/08 19:25:44 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,10 +102,11 @@ void	reverse_rotate_a(t_info *i, int flag)
 		new_last = new_last->next;
 	ptr = new_last;
 	new_last = new_last->prev;
+	if (new_last)
+		new_last->next = NULL;
 	ptr->prev = NULL;
 	ptr->next = old_head;
-	new_last->next = NULL;
-	old_head->prev = NULL;
+	old_head->prev = ptr;
 	i->st_a = ptr;
 	if (flag == LOUD)
 		ft_putendl_fd("rra", 1);

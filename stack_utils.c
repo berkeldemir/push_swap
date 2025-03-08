@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 07:35:37 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/05 21:38:55 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/08 14:44:16 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	check_stack_sorted(t_stack *stack)
 	return (1);
 }
 
-int	pos_of_number_on_stack(t_stack *stack, int number)
+int	pos_on_stack(t_stack *stack, int number)
 {
 	int pos;
 
