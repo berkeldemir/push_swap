@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 07:46:20 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/08 19:53:14 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/08 14:23:11 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void	sort_3_numbers(t_info *i);
 void	sort(t_info *i);
 void	big_sort(t_info *i);
 
+t_stack	*find_cheapest(t_info *i);
 void	calc_cost_a(t_info *info);
 void	reset_costs(t_info *i);
 

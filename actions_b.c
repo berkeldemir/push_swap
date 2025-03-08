@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 11:34:26 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/08 19:43:17 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/08 12:50:56 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 void	swap_b(t_info *i, int flag)
 {
-	t_stack	*ptr;
 	int		tmp;
 
 	i->st_a = head_of_stack(i->st_a);
 	i->st_b = head_of_stack(i->st_b);
 	if (!i->st_b || !i->st_b->next)
 		return ;
-	ptr = i->st_b->next;
 	tmp = i->st_b->num;
 	i->st_b->num = i->st_b->next->num;
 	i->st_b->next->num = tmp;

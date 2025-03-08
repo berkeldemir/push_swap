@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 19:28:09 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/08 19:55:15 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/08 14:53:31 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ static void	send_to_b(t_info *i)
 {
 	int	isrrb;
 
-	isrrb = 0;
+	isrrb = 1;
 	while (i->len_a > 3)
 	{
 		calc_cost_a(i);
 		print_stacks(i);
 		ft_printf("\nTABLE:\tra:%i\trra:%i\trb:%i\trrb:%i\n", i->ra, i->rra, i->rb, i->rrb);
 		if (i->rrb > i->rb)
-			isrrb = 1;
+			isrrb = 0;
 		while (i->ra > 0 && i->rb > 0)
 			(rotate_both(i, LOUD), i->ra--, i->rb--);
 		while (i->rra > 0 && i->rrb > 0)
@@ -43,8 +43,12 @@ static void	send_to_b(t_info *i)
 			if (isrrb == 1)
 				reverse_rotate_b(i, LOUD);
 			else
-				rotate_b(i, LOUD);
-			print_stacks(i);
+			{
+				ft_printf("*");
+				(rotate_b(i, LOUD), i->rb--);
+				ft_printf("*");
+			}
+			//print_stacks(i);
 		}
 	}
 	sort_3_numbers(i);
@@ -61,6 +65,8 @@ void	big_sort(t_info *i)
 {
 	push_b(i, LOUD);
 	push_b(i, LOUD);
+	if (check_stack_reverse_sorted(i->st_b) == -1)
+		swap_b(i, LOUD);
 	send_to_b(i);
 	//sort_3_numbers(i);
 	//while (i->st_b)
