@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 18:36:44 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/09 22:20:25 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/10 02:00:26 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,16 @@
 static void	calc_to_bring_top(t_info *i)
 {
 	t_stack	*ptr;
+	int		pos;
 
 	ptr = i->st_b;
 	while (ptr)
 	{
-		if (pos_on_stack(i->st_b, ptr->num) <= (i->len_b / 2))
-			ptr->cost += pos_on_stack(i->st_b, ptr->num);
+		pos = pos_on_stack(i->st_b, ptr->num);
+		if (pos <= (i->len_b / 2))
+			ptr->cost += pos;
 		else
-			ptr->cost += i->len_b - pos_on_stack(i->st_b, ptr->num);
+			ptr->cost += i->len_b - pos;
 		ptr = ptr->next;
 	}
 }
@@ -30,38 +32,37 @@ static void	calc_to_bring_top(t_info *i)
 static void	calc_to_put_on_a(t_info *i)
 {
 	t_stack	*b;
-	int		index;
+	int		pos;
 
 	b = i->st_b;
 	while (b)
 	{
-		index = find_min_above(i->st_a, b->num);
-		if (index <= (i->len_a / 2))
-			b->cost += index;
+		pos = find_min_above(i->st_a, b->num);
+		if (pos <= (i->len_a / 2))
+			b->cost += pos;
 		else
-			b->cost += i->len_a - index;
+			b->cost += i->len_a - pos;
 		b = b->next;
 	}
 }
 
 static void	find_cheapest_b(t_info *i)
 {
-	int		index_a;
-	int		count;
+	int		pos;
 	t_stack	*cheapest;
 
 	cheapest = find_cheapest(i->st_b);
 	reset_costs(i);
-	count = pos_on_stack(i->st_b, cheapest->num);
-	if (count <= (i->len_b / 2))
-		i->rb = count;
+	pos = pos_on_stack(i->st_b, cheapest->num);
+	if (pos <= (i->len_b / 2))
+		i->rb = pos;
 	else
-		i->rrb = i->len_b - count;
-	index_a = find_min_above(i->st_a, cheapest->num);
-	if (index_a <= (i->len_a / 2))
-		i->ra = index_a;
+		i->rrb = i->len_b - pos;
+	pos = find_min_above(i->st_a, cheapest->num);
+	if (pos <= (i->len_a / 2))
+		i->ra = pos;
 	else
-		i->rra = i->len_a - index_a;
+		i->rra = i->len_a - pos;
 }
 
 void	calc_cost_b(t_info *i)
