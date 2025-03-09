@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 13:57:04 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/10 02:00:45 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/10 02:03:30 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 static void	calc_to_bring_top(t_info *i)
 {
-	t_stack	*ptr;
+	t_stack	*a;
 	int		pos;
 
-	ptr = i->st_a;
-	while (ptr)
+	a = i->st_a;
+	while (a)
 	{
-		pos = pos_on_stack(i->st_a, ptr->num);
+		pos = pos_on_stack(i->st_a, a->num);
 		if (pos <= (i->len_a / 2))
-			ptr->cost += pos;
+			a->cost += pos;
 		else
-			ptr->cost += i->len_a - pos;
-		ptr = ptr->next;
+			a->cost += i->len_a - pos;
+		a = a->next;
 	}
 }
 
@@ -48,8 +48,8 @@ static void	calc_to_put_on_b(t_info *i)
 
 static void	find_cheapest_a(t_info *i)
 {
-	int		pos;
 	t_stack	*cheapest;
+	int		pos;
 
 	cheapest = find_cheapest(i->st_a);
 	reset_costs(i);
