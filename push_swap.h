@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 07:46:20 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/08 14:23:11 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/09 19:03:08 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,12 @@ int		check_stack_reverse_sorted(t_stack *stack);
 int		check_stack_sorted(t_stack *stack);
 int		check_stack_circular_sorted(t_stack *stack);
 int		pos_on_stack(t_stack *stack, int number);
+int		number_on_the_index(t_stack *stack, int index);
 t_stack	*find_biggest_on_stack(t_stack *stack);
 t_stack	*find_smallest_on_stack(t_stack *stack);
 t_stack	*head_of_stack(t_stack *stack);
-int		number_on_the_index(t_stack *stack, int index);
+int		find_max_below(t_stack *stack, int number);
+int		find_min_above(t_stack *stack, int number);
 
 void	swap_a(t_info *i, int flag);
 void	push_a(t_info *i, int flag);
@@ -76,8 +78,9 @@ void	sort_3_numbers(t_info *i);
 void	sort(t_info *i);
 void	big_sort(t_info *i);
 
-t_stack	*find_cheapest(t_info *i);
+t_stack	*find_cheapest(t_stack *stack);
 void	calc_cost_a(t_info *info);
+void    calc_cost_b(t_info *i);
 void	reset_costs(t_info *i);
 
 void	init_info(t_info *i);

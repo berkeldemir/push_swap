@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 07:35:37 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/08 14:44:16 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/09 17:30:10 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,16 +76,16 @@ int	check_stack_sorted(t_stack *stack)
 
 int	pos_on_stack(t_stack *stack, int number)
 {
-	int pos;
-
-	while (stack->prev != NULL)
-		stack = stack->prev;
+	int		pos;
+	t_stack	*ptr;
+	
+	ptr = head_of_stack(stack);
 	pos = 0;
-	while (stack->next != NULL)
+	while (ptr->next != NULL)
 	{
-		if (stack->num == number)
+		if (ptr->num == number)
 			break ;
-		stack = stack->next;
+		ptr = ptr->next;
 		pos++;
 	}
 	return (pos);
