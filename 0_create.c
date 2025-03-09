@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 08:46:58 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/05 17:52:28 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/09 22:03:58 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,9 +114,9 @@ void	create_tmp_a(int ac, char **av, t_info *i)
 {
 	char	*full;
 
+	init_info(i);
 	if (ac < 2)
 		quit(i, '-');
-	init_info(i);
 	full = parse_args(ac, av);
 	if (full == NULL)
 		quit(i, 'e');

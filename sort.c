@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 14:31:09 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/09 19:04:47 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/09 21:41:36 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static void	sort_4_numbers(t_info *i)
 	push_a(i, LOUD);
 }
 
-void	sort_circular_stack(t_info *i)
+static void	sort_circular_stack(t_info *i)
 {
 	int		index;
 	t_stack	*ptr;

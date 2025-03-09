@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 19:28:09 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/09 19:04:28 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/09 21:59:38 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static void	send_to_b(t_info *i)
 	while (i->len_a > 3)
 	{
 		calc_cost_a(i);
-		//ft_printf("\nTABLE:\tra:%i\trra:%i\trb:%i\trrb:%i\n", i->ra, i->rra, i->rb, i->rrb);
 		while (i->ra > 0 && i->rb > 0)
 			(rotate_both(i, LOUD), i->ra--, i->rb--);
 		while (i->rra > 0 && i->rrb > 0)
@@ -39,7 +38,6 @@ static void	get_back_to_a(t_info *i)
 	while (i->len_b != 0)
 	{
 		calc_cost_b(i);
-		//ft_printf("\nTABLE:\tra:%i\trra:%i\trb:%i\trrb:%i\n", i->ra, i->rra, i->rb, i->rrb);
 		while (i->ra > 0 && i->rb > 0)
 			(rotate_both(i, LOUD), i->ra--, i->rb--);
 		while (i->rra > 0 && i->rrb > 0)

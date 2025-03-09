@@ -6,44 +6,26 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 15:54:17 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/09 18:39:54 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/09 22:19:08 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-int	find_max_below(t_stack *stack, int number)
+t_stack	*find_smallest_on_stack(t_stack *stack)
 {
-	t_stack *ptr;
-	t_stack	*max_below;
+	t_stack	*found;
+	t_stack	*st;
 
-	ptr = stack;
-	max_below = find_biggest_on_stack(stack);
-	while (ptr)
+	st = head_of_stack(stack);
+	found = st;
+	while (st != NULL)
 	{
-		if (ptr->num < number && (max_below == find_biggest_on_stack(stack) \
-		|| ptr->num > max_below->num))
-			max_below = ptr;
-		ptr = ptr->next;
+		if (st->num < found->num)
+			found = st;
+		st = st->next;
 	}
-	return (pos_on_stack(stack, max_below->num));
-}
-
-int	find_min_above(t_stack *stack, int number)
-{
-	t_stack *ptr;
-	t_stack	*min_above;
-
-	ptr = stack;
-	min_above = find_smallest_on_stack(stack);
-	while (ptr)
-	{
-		if (ptr->num > number && (min_above == find_smallest_on_stack(stack) \
-		|| ptr->num < min_above->num))
-			min_above = ptr;
-		ptr = ptr->next;
-	}
-	return (pos_on_stack(stack, min_above->num));
+	return (found);
 }
 
 t_stack	*find_biggest_on_stack(t_stack *stack)
@@ -64,16 +46,60 @@ t_stack	*find_biggest_on_stack(t_stack *stack)
 	return (found);
 }
 
-int	number_on_the_index(t_stack *stack, int index)
+int	find_max_below(t_stack *stack, int number)
 {
 	t_stack	*ptr;
+	t_stack	*max_below;
+	int		pos;
+	int		target_pos;
 
-	ptr = stack;
-	while (index--)
+	pos = 0;
+	target_pos = -1;
+	ptr = head_of_stack(stack);
+	max_below = NULL;
+	while (ptr)
 	{
-		if (!ptr)
-			return (-1);
+		if (ptr->num < number)
+		{
+			if (!max_below || ptr->num > max_below->num)
+			{
+				max_below = ptr;
+				target_pos = pos;
+			}
+		}
+		pos++;
 		ptr = ptr->next;
 	}
-	return (ptr->num);
+	if (target_pos == -1)
+		return (pos_on_stack(stack, find_biggest_on_stack(stack)->num));
+	return (target_pos);
+}
+
+int	find_min_above(t_stack *stack, int number)
+{
+	t_stack	*ptr;
+	t_stack	*min_above;
+	int		pos;
+	int		target_pos;
+
+	pos = 0;
+	target_pos = -1;
+	ptr = head_of_stack(stack);
+	min_above = NULL;
+	while (ptr)
+	{
+		if (ptr->num > number)
+		{
+			if (!min_above || ptr->num < min_above->num)
+			{
+				min_above = ptr;
+				target_pos = pos;
+			}
+		}
+		pos++;
+		ptr = ptr->next;
+	}
+	if (target_pos == -1)
+		return (pos_on_stack(stack, find_smallest_on_stack(stack)->num));
+	return (target_pos);
 }

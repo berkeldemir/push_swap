@@ -6,28 +6,33 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 07:35:37 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/09 17:30:10 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/09 22:20:41 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-t_stack	*find_smallest_on_stack(t_stack *stack)
+t_stack	*head_of_stack(t_stack *stack)
 {
-	t_stack	*found;
+	while (stack && stack->prev)
+		stack = stack->prev;
+	return (stack);
+}
+
+int	check_stack_sorted(t_stack *stack)
+{
 	t_stack	*st;
 
-	st = stack;
-	while (st->prev != NULL)
-		st = st->prev;
-	found = st;
-	while (st != NULL)
+	st = head_of_stack(stack);
+	if (!st)
+		return (1);
+	while (st->next)
 	{
-		if (st->num < found->num)
-			found = st;
+		if (st->num > st->next->num)
+			return (-1);
 		st = st->next;
 	}
-	return (found);
+	return (1);
 }
 
 int	check_stack_circular_sorted(t_stack *stack)
@@ -58,27 +63,11 @@ int	check_stack_circular_sorted(t_stack *stack)
 	return (1);
 }
 
-int	check_stack_sorted(t_stack *stack)
-{
-	t_stack	*st;
-	
-	st = head_of_stack(stack);
-	if (!st)
-		return (1);
-	while (st->next)
-	{
-		if (st->num > st->next->num)
-			return (-1);
-		st = st->next;
-	}
-	return (1);
-}
-
 int	pos_on_stack(t_stack *stack, int number)
 {
 	int		pos;
 	t_stack	*ptr;
-	
+
 	ptr = head_of_stack(stack);
 	pos = 0;
 	while (ptr->next != NULL)
@@ -89,10 +78,4 @@ int	pos_on_stack(t_stack *stack, int number)
 		pos++;
 	}
 	return (pos);
-}
-t_stack	*head_of_stack(t_stack *stack)
-{
-	while (stack && stack->prev)
-		stack = stack->prev;
-	return (stack);
 }

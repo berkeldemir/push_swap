@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 16:14:28 by beldemir          #+#    #+#             */
-/*   Updated: 2024/10/21 13:43:04 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/10 00:34:38 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+char	*get_next_line(int fd);
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -67,4 +69,5 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
+char	*get_next_line(int fd);
 #endif
