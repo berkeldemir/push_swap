@@ -7,11 +7,11 @@ LIBFT = $(LIBFT_DIR)/libft.a
 SRCS = push_swap.c 0_create.c 1_reduce.c 2_convert.c \
 		new_atoi.c utils.c utils2.c actions_a.c actions_b.c actions_both.c \
 		calc_cost_a.c calc_cost_b.c stack_utils.c stack_utils2.c sort.c big_sort.c
-BONUSSRCS = checker.c 0_create.c 1_reduce.c 2_convert.c \
+BONUS_SRCS = checker.c 0_create.c 1_reduce.c 2_convert.c \
 			actions_a.c actions_b.c actions_both.c utils.c utils2.c new_atoi.c \
 			stack_utils.c stack_utils2.c
 OBJS = $(SRCS:.c=.o)
-BONUSOBJS = $(BONUSSRCS:.c=.o)
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 all: $(LIBFT) $(NAME)
 
@@ -21,11 +21,13 @@ $(LIBFT):
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
-bonus: $(LIBFT) $(BONUSOBJS)
-	$(CC) $(CFLAGS) $(BONUSOBJS) $(LIBFT) -o $(CHECKER)
+bonus: $(CHECKER)
+
+$(CHECKER): $(LIBFT) $(BONUS_OBJS)
+	$(CC) $(CFLAGS) $(BONUS_OBJS) $(LIBFT) -o $(CHECKER)
 
 clean:
-	@rm -f $(OBJS)
+	@rm -f $(OBJS) $(BONUS_OBJS)
 	@make clean -C $(LIBFT_DIR)
 
 fclean: clean
