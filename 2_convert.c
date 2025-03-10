@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 08:46:49 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/10 07:39:19 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/10 07:48:56 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ void	convert_st_a(t_info *info)
 	info->st_a->prev = NULL;
 	info->st_a->num = info->tab_a[0];
 	info->st_a->next = NULL;
-	create_st_a(i);
+	create_st_a(info);
 	free(info->tab_a);
 }
