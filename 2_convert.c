@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert.c                                          :+:      :+:    :+:   */
+/*   2_convert.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 08:46:49 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/09 21:56:43 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/10 07:11:10 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@ void	convert_st_a(t_info *info)
 		new->prev = old;
 		new->num = info->tab_a[i];
 		new->cost = 0;
+		new->ra = 0;
+		new->rb = 0;
+		new->rra = 0;
+		new->rrb = 0;
 		new->next = NULL;
 		old = new;
 	}
