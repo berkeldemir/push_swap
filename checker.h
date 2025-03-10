@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 22:57:24 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/10 00:18:00 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/10 06:56:42 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	init_info(t_info *i);
 void	create_tmp_a(int ac, char **av, t_info *i);
 void	reduce_tmp_a(t_info *i);
 void	convert_st_a(t_info *info);
-
 
 void	swap_a(t_info *i, int flag);
 void	push_a(t_info *i, int flag);
