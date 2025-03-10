@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 22:44:24 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/10 00:21:45 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/10 04:16:40 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,27 @@ static void	read_inputs(t_info *i)
 	}
 }
 
+#include <stdio.h>
+static void	printstacks(t_info *i)
+{
+	t_stack	*ptr;
+
+	ptr = i->st_a;
+	printf("\nA:\t");
+	while (ptr)
+	{
+		printf("%i\t", ptr->num);
+		ptr = ptr->next;
+	}
+	ptr = i->st_b;
+	printf("\nB:\t");
+	while (ptr)
+	{
+		printf("%i\t", ptr->num);
+		ptr = ptr->next;
+	}
+}
+
 
 int main(int ac, char **av)
 {
@@ -65,6 +86,7 @@ int main(int ac, char **av)
 	convert_st_a(i);
 	
     read_inputs(i);
+	printstacks(i);
 	if (check_stack_sorted(i->st_a) == 1 && i->len_b == 0)
 		(ft_putendl_fd("OK\n", 1), quit(i, '+'));
 	else

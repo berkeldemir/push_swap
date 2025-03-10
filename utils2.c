@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 18:12:15 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/09 22:00:20 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/10 05:01:10 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	init_info(t_info *i)
 	i->rra = 0;
 	i->rb = 0;
 	i->rrb = 0;
+	i->rr = 0;
+	i->rrr = 0;
 }
 
 void	reset_costs(t_info *i)
@@ -36,18 +38,26 @@ void	reset_costs(t_info *i)
 	b = i->st_b;
 	while (a)
 	{
+		a->ra = 0;
+		a->rra = 0;
+		a->rb = 0;
+		a->rrb = 0;
+		a->rr = 0;
+		a->rrr = 0;
 		a->cost = 0;
 		a = a->next;
 	}
 	while (b)
 	{
+		b->ra = 0;
+		b->rra = 0;
+		b->rb = 0;
+		b->rrb = 0;
+		b->rr = 0;
+		b->rrr = 0;
 		b->cost = 0;
 		b = b->next;
 	}
-	i->ra = 0;
-	i->rra = 0;
-	i->rb = 0;
-	i->rrb = 0;
 }
 
 t_stack	*find_cheapest(t_stack *stack)

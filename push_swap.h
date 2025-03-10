@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 07:46:20 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/09 23:43:58 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/10 04:52:09 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ typedef struct s_stack
 	struct s_stack	*prev;
 	int				num;
 	int				cost;
+	int				ra;
+	int				rra;
+	int				rb;
+	int				rrb;
+	int				rr;
+	int				rrr;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -40,6 +46,8 @@ typedef struct s_info
 	int		rra;
 	int		rb;
 	int		rrb;
+	int		rr;
+	int		rrr;
 }	t_info;
 
 int		ft_printf(const char *str, ...);

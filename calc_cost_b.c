@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 18:36:44 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/10 02:04:04 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/10 04:53:18 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,24 @@ static void	calc_to_bring_top(t_info *i)
 	{
 		pos = pos_on_stack(i->st_b, b->num);
 		if (pos <= (i->len_b / 2))
-			b->cost += pos;
+			b->ra += pos;
 		else
-			b->cost += i->len_b - pos;
+			b->rra += i->len_b - pos;
+		b = b->next;
+	}
+}
+
+static void calc_of_rr_rrr(t_info *i)
+{
+	t_stack	*b;
+
+	b = i->st_b;
+	while (b)
+	{
+		while (b->ra > 0 && b->rb > 0)
+			(b->rr++, b->ra--, b->rb--);
+		while (b->rra > 0 && b->rrb > 0)
+			(b->rrr++, b->rra--, b->rrb--);
 		b = b->next;
 	}
 }
@@ -39,9 +54,16 @@ static void	calc_to_put_on_a(t_info *i)
 	{
 		pos = find_min_above(i->st_a, b->num);
 		if (pos <= (i->len_a / 2))
-			b->cost += pos;
+			b->rb += pos;
 		else
-			b->cost += i->len_a - pos;
+			b->rrb += i->len_a - pos;
+		b = b->next;
+	}
+	calc_of_rr_rrr(i);
+	b = i->st_b;
+	while (b)
+	{
+		b->cost = b->ra + b->rb  + b->rra + b->rrb + b->rr + b->rrr;
 		b = b->next;
 	}
 }
@@ -49,20 +71,15 @@ static void	calc_to_put_on_a(t_info *i)
 static void	find_cheapest_b(t_info *i)
 {
 	t_stack	*cheapest;
-	int		pos;
 
 	cheapest = find_cheapest(i->st_b);
+	i->ra = cheapest->ra;
+	i->rb = cheapest->rb;
+	i->rra = cheapest->rra;
+	i->rrb = cheapest->rrb;
+	i->rr = cheapest->rr;
+	i->rrr = cheapest->rrr;
 	reset_costs(i);
-	pos = pos_on_stack(i->st_b, cheapest->num);
-	if (pos <= (i->len_b / 2))
-		i->rb = pos;
-	else
-		i->rrb = i->len_b - pos;
-	pos = find_min_above(i->st_a, cheapest->num);
-	if (pos <= (i->len_a / 2))
-		i->ra = pos;
-	else
-		i->rra = i->len_a - pos;
 }
 
 void	calc_cost_b(t_info *i)
