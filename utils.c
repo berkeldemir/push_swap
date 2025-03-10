@@ -6,12 +6,27 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 11:05:27 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/09 22:03:01 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/10 07:58:43 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 #include <limits.h>
+
+void	init_info(t_info *i)
+{
+	i->tmp_a = NULL;
+	i->tab_a = NULL;
+	i->st_a = NULL;
+	i->st_b = NULL;
+	i->len_a = 0;
+	i->len_b = 0;
+	i->len_total = 0;
+	i->ra = 0;
+	i->rra = 0;
+	i->rb = 0;
+	i->rrb = 0;
+}
 
 int	check_double(int *tab, int count)
 {

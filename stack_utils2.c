@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 15:54:17 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/09 22:19:08 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/10 07:57:20 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,7 @@ t_stack	*find_biggest_on_stack(t_stack *stack)
 	t_stack	*found;
 	t_stack	*st;
 
-	st = stack;
-	while (st->prev != NULL)
-		st = st->prev;
+	st = head_of_stack(stack);
 	found = st;
 	while (st != NULL)
 	{

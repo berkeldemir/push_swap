@@ -6,26 +6,11 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 18:12:15 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/10 07:11:38 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/10 07:58:37 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
-
-void	init_info(t_info *i)
-{
-	i->tmp_a = NULL;
-	i->tab_a = NULL;
-	i->st_a = NULL;
-	i->st_b = NULL;
-	i->len_a = 0;
-	i->len_b = 0;
-	i->len_total = 0;
-	i->ra = 0;
-	i->rra = 0;
-	i->rb = 0;
-	i->rrb = 0;
-}
 
 void	reset_costs(t_info *i)
 {

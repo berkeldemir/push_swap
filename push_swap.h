@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 07:46:20 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/10 07:12:39 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/10 08:21:04 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,6 @@ typedef struct s_info
 	int		rrb;
 }	t_info;
 
-int		ft_printf(const char *str, ...);
-
-t_stack	*head_of_stack(t_stack *stack);
-t_stack	*find_biggest_on_stack(t_stack *stack);
-t_stack	*find_smallest_on_stack(t_stack *stack);
-int		check_stack_sorted(t_stack *stack);
-int		check_stack_circular_sorted(t_stack *stack);
-int		pos_on_stack(t_stack *stack, int number);
-int		find_max_below(t_stack *stack, int number);
-int		find_min_above(t_stack *stack, int number);
-
 void	swap_a(t_info *i, int flag);
 void	push_a(t_info *i, int flag);
 void	rotate_a(t_info *i, int flag);
@@ -78,6 +67,15 @@ void	convert_st_a(t_info *info);
 void	sort(t_info *i);
 void	sort_3_numbers(t_info *i);
 void	big_sort(t_info *i);
+
+t_stack	*head_of_stack(t_stack *stack);
+t_stack	*find_biggest_on_stack(t_stack *stack);
+t_stack	*find_smallest_on_stack(t_stack *stack);
+int		check_stack_sorted(t_stack *stack);
+int		check_stack_circular_sorted(t_stack *stack);
+int		pos_on_stack(t_stack *stack, int number);
+int		find_max_below(t_stack *stack, int number);
+int		find_min_above(t_stack *stack, int number);
 
 t_stack	*find_cheapest(t_stack *stack);
 void	calc_cost_a(t_info *info);

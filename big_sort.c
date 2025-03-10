@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 19:28:09 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/10 05:16:52 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/10 08:08:38 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ static void	get_back_to_a(t_info *i)
 void	big_sort(t_info *i)
 {
 	push_b(i, LOUD);
-	push_b(i, LOUD);
+	if (i->len_a > 3)
+		push_b(i, LOUD);
 	send_to_b(i);
 	sort_3_numbers(i);
 	get_back_to_a(i);

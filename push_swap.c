@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 07:51:09 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/09 22:08:49 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/10 07:56:27 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	main(int ac, char **av)
 	convert_st_a(i);
 	if (check_stack_sorted(i->st_a) == -1)
 		sort(i);
+	else
+		quit(i, '+');
 	quit(i, '-');
 	return (0);
 }
