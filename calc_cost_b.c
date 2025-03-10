@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 18:36:44 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/10 07:28:11 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/10 07:39:48 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,17 @@ static void	assign_costs(t_info *i)
 		rr = 0;
 		rrr = 0;
 		while (ptr->ra > 0 && ptr->rb > 0)
-			(rr++, ptr->ra--, ptr->rb--);
+		{
+			rr++;
+			ptr->ra--;
+			ptr->rb--;
+		}
 		while (ptr->rra > 0 && ptr->rrb > 0)
-			(rrr++, ptr->rra--, ptr->rrb--);
+		{
+			rrr++;
+			ptr->rra--;
+			ptr->rrb--;
+		}
 		ptr->cost = rr + rrr + ptr->ra + ptr->rb + ptr->rra + ptr->rrb;
 		ptr = ptr->next;
 	}
