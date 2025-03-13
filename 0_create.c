@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create.c                                           :+:      :+:    :+:   */
+/*   0_create.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 08:46:58 by beldemir          #+#    #+#             */
-/*   Updated: 2025/03/09 22:03:58 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/03/13 15:11:19 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,13 +100,13 @@ static int	*generate_a(char *full, int count)
 		if (full[start] == '\0')
 			break ;
 		if (new_atoi(&full[start], &tmp_a[i]) == -1)
-			return (free(tmp_a), NULL);
+			return (free(full), free(tmp_a), NULL);
 		i++;
 		while (full[start] != ' ' && full[start] != '\0')
 			start++;
 	}
 	if (i != count)
-		return (free(tmp_a), NULL);
+		return (free(full), free(tmp_a), NULL);
 	return (tmp_a);
 }
 
